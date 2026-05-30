@@ -1,0 +1,22 @@
+# Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Streamlit Cache
+.streamlit/
+
+# Uploaded Resumes
+uploads/resumes/*
+
+# Database
+database/skillsync.db
+
+# OS Files
+.DS_Store
+Thumbs.db
