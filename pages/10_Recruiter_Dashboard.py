@@ -26,16 +26,42 @@ st.write(
 
 st.divider()
 
-
 st.write("Recruiter Functions")
 
-st.button("Create Job")
 
-st.button("Upload Resume")
+if st.button("Create Job"):
 
-st.button("View Rankings")
+    st.switch_page(
+        "pages/5_Create_Job.py"
+    )
 
-st.button("Skill Gap Analysis")
+
+if st.button("View Jobs"):
+
+    st.switch_page(
+        "pages/12_View_Jobs.py"
+    )
+
+
+if st.button("Upload Resume"):
+
+    st.switch_page(
+        "pages/6_Upload_Resumes.py"
+    )
+
+
+if st.button("View Rankings"):
+
+    st.switch_page(
+        "pages/11_View_Rankings.py"
+    )
+
+
+if st.button("Skill Gap Analysis"):
+
+    st.switch_page(
+        "pages/8_Skill_Gap_Analysis.py"
+    )
 
 
 st.divider()

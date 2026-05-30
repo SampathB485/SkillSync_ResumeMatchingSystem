@@ -37,9 +37,19 @@ CREATE TABLE IF NOT EXISTS Job (
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS Candidate (
     candidate_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
     name TEXT NOT NULL,
+
     email TEXT UNIQUE NOT NULL,
-    resume_path TEXT NOT NULL
+
+    resume_path TEXT NOT NULL,
+
+    resume_text TEXT,
+
+    job_id INTEGER,
+
+    FOREIGN KEY (job_id)
+        REFERENCES Job(job_id)
 )
 """)
 
