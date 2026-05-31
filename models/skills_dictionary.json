@@ -1,1 +1,57 @@
-{}
+{
+  "programming_languages": [
+    "python", "java", "javascript", "c++", "c#", "php", "ruby", "go", "rust", "kotlin",
+    "scala", "perl", "r language", "matlab", "objective-c", "swift", "typescript",
+    "groovy", "lua", "haskell", "elixir", "clojure", "erlang", "dart", "vb.net",
+    "assembly", "sql", "bash", "shell script"
+  ],
+  "web_frameworks": [
+    "react", "angular", "vue", "django", "flask", "spring", "express", "fastapi",
+    "asp.net", "rails", "laravel", "symfony", "nextjs", "nuxt", "svelte", "ember"
+  ],
+  "databases": [
+    "mysql", "postgresql", "mongodb", "oracle", "sql server", "sqlite", "cassandra",
+    "dynamodb", "redis", "elasticsearch", "firebase", "neo4j", "couchdb", "influxdb",
+    "memcached", "hbase", "mariadb"
+  ],
+  "cloud_platforms": [
+    "aws", "azure", "gcp", "google cloud", "heroku", "docker", "kubernetes", "jenkins",
+    "gitlab ci", "github actions", "circleci", "travis ci", "openstack", "ibm cloud",
+    "digitalocean", "aws lambda", "aws ec2", "aws s3", "azure devops"
+  ],
+  "devops_tools": [
+    "docker", "kubernetes", "terraform", "ansible", "puppet", "chef", "prometheus",
+    "grafana", "elk stack", "jenkins", "gitlab", "github", "bitbucket", "maven", "gradle",
+    "npm", "yarn", "pip"
+  ],
+  "data_science": [
+    "machine learning", "deep learning", "nlp", "computer vision", "tensorflow",
+    "pytorch", "keras", "scikit-learn", "pandas", "numpy", "matplotlib", "seaborn",
+    "tableau", "power bi", "data analysis", "statistical analysis", "data mining",
+    "big data", "spark", "hadoop", "hive"
+  ],
+  "mobile_development": [
+    "android", "ios", "react native", "flutter", "xamarin", "cordova", "ionic",
+    "swift", "objective-c", "kotlin", "java"
+  ],
+  "testing": [
+    "junit", "testng", "pytest", "mocha", "jasmine", "selenium", "cypress", "postman",
+    "jmeter", "loadrunner", "soapui", "qtp", "bamboo", "test automation", "unit testing",
+    "integration testing", "system testing", "performance testing"
+  ],
+  "soft_skills": [
+    "communication", "leadership", "teamwork", "problem solving", "time management",
+    "project management", "agile", "scrum", "kanban", "critical thinking",
+    "analytical", "presentation", "documentation", "negotiation", "collaboration"
+  ],
+  "other_technologies": [
+    "rest api", "graphql", "xml", "json", "html", "css", "bootstrap", "jquery",
+    "apache", "nginx", "linux", "windows", "macos", "git", "svn", "jira",
+    "confluence", "slack", "microservices", "oop", "functional programming",
+    "design patterns", "security", "oauth", "jwt", "ssl", "tls"
+  ],
+  "software_development": [
+    "software development", "full stack", "backend", "frontend", "web development",
+    "api development", "rest", "soap", "grpc", "websocket", "socket.io"
+  ]
+}

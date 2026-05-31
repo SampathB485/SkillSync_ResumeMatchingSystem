@@ -62,3 +62,24 @@ def get_all_match_results():
             ORDER BY mr.job_id, mr.ranking
         """)
         return cursor.fetchall()
+
+
+def get_match_results_for_recruiter(recruiter_id):
+    with get_connection() as conn:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT
+                mr.result_id,
+                c.name,
+                j.job_title,
+                mr.match_score,
+                mr.missing_skills,
+                mr.ranking,
+                j.posted_date
+            FROM MatchResult mr
+            JOIN Candidate c ON mr.candidate_id = c.candidate_id
+            JOIN Job j ON mr.job_id = j.job_id
+            WHERE j.recruiter_id = ?
+            ORDER BY mr.job_id, mr.ranking
+        """, (recruiter_id,))
+        return cursor.fetchall()
