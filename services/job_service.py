@@ -60,3 +60,45 @@ def get_jobs_by_recruiter(recruiter_id):
     conn.close()
 
     return jobs
+
+
+def get_job_by_id(job_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT
+            job_id,
+            job_title,
+            job_description,
+            required_skills,
+            experience_required,
+            posted_date
+        FROM Job
+        WHERE job_id = ?
+    """, (job_id,))
+
+    job = cursor.fetchone()
+    conn.close()
+    return job
+
+
+def get_all_jobs():
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT
+            job_id,
+            job_title,
+            job_description,
+            required_skills,
+            experience_required,
+            posted_date
+        FROM Job
+        ORDER BY job_id DESC
+    """)
+
+    jobs = cursor.fetchall()
+    conn.close()
+    return jobs

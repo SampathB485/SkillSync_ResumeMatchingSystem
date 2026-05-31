@@ -37,17 +37,12 @@ CREATE TABLE IF NOT EXISTS Job (
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS Candidate (
     candidate_id INTEGER PRIMARY KEY AUTOINCREMENT,
-
     name TEXT NOT NULL,
-
     email TEXT UNIQUE NOT NULL,
-
-    resume_path TEXT NOT NULL,
-
+    password TEXT NOT NULL,
+    resume_path TEXT,
     resume_text TEXT,
-
     job_id INTEGER,
-
     FOREIGN KEY (job_id)
         REFERENCES Job(job_id)
 )
@@ -68,6 +63,13 @@ CREATE TABLE IF NOT EXISTS MatchResult (
         REFERENCES Job(job_id)
 )
 """)
+
+cursor.execute("PRAGMA table_info(Candidate)")
+columns = [row[1] for row in cursor.fetchall()]
+if "password" not in columns:
+    cursor.execute("ALTER TABLE Candidate ADD COLUMN password TEXT")
+if "resume_text" not in columns:
+    cursor.execute("ALTER TABLE Candidate ADD COLUMN resume_text TEXT")
 
 conn.commit()
 conn.close()
