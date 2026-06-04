@@ -1,15 +1,40 @@
 from database.db_connection import get_connection
 from nlp.skill_extractor import extract_skills
+from ml.tfidf_matcher import compute_tfidf_similarity
 
 
 def compute_match_score(candidate_text, job_text):
-    """Compute a simple match score between candidate resume text and job description text."""
+    """
+    Compute hybrid match score using both skill-based and TF-IDF similarity.
+    
+    Combines:
+    - Skill overlap (70% weight): Exact skill matches
+    - TF-IDF similarity (30% weight): Semantic content match
+    
+    Args:
+        candidate_text (str): Resume text
+        job_text (str): Job description text
+        
+    Returns:
+        float: Match score between 0 and 1
+    """
+    # Skill-based matching (70% weight)
     candidate_skills = set(extract_skills(candidate_text))
     job_skills = set(extract_skills(job_text))
+    
     if not job_skills:
-        return 0.0
-    overlap = candidate_skills.intersection(job_skills)
-    return len(overlap) / len(job_skills)
+        skill_score = 0.0
+    else:
+        overlap = candidate_skills.intersection(job_skills)
+        skill_score = len(overlap) / len(job_skills)
+    
+    # TF-IDF semantic matching (30% weight)
+    tfidf_score = compute_tfidf_similarity(candidate_text, job_text)
+    
+    # Combine scores
+    hybrid_score = (skill_score * 0.7) + (tfidf_score * 0.3)
+    
+    return hybrid_score
 
 
 def evaluate_candidate_for_job(candidate, job):
